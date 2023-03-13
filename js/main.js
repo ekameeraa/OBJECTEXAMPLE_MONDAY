@@ -1,49 +1,52 @@
-console.log('js is wired!');
+console.log('its working');
 
-let theButton = document.querySelector('button'),
+let theButton = document.querySelectorAll('button'),
     theList = document.querySelector('ul');
-// rules for worrking with / creating objects
 
-// 1. needs a name, wrapped in curly bracckets
+// rules for working with/creating objects
+// 1. need a name
 // 2. commas between keys
 
-let coffeeCup = {
-    // descriptive keys: properties
-    color : "white", //String
-    lidcolor : "grey", //String
-    height : 20, //Number
-    contents : "cappucino", //String
+let profs = {
+    marco : {
+        name : 'Marco',
+        role : 'Coordinator',
+        nickname : 'marco',
+        bio : 'some interesting info about marco',
+        avatar : 'marco.jpg'
+    },
 
-    // functional keys: methods (things an object can do)
-    drink: () => {console.log('sippy sip')},
-    mix: () => {console.log('add cream, sugar, etc')}
+    joe : {
+    name : 'Joe',
+    role : 'Digital Media Theory and Project Management',
+    nickname : 'teddy bear',
+    bio : 'some interesting info about joe',
+    avatar : 'joe.jpg'
+    },
+
+    john : {
+        name : ' john',
+        role : 'Motion Design',
+        nickname : 'teddy bear',
+        bio : 'some interesting info about  john',
+        avatar : ' john.jpg'
+        },
 };
 
-// functions go here
-function listProps() {
-    // debugger;
-    for (prop in coffeeCup) { //prop is short for property
-        console.log(prop);
+//functions go here
+function listProfs() {
+    // empty out the list
+        theList.innerHTML ="";
+    // and then repopulate it with the correct data
+    
+    
+    for (item in profs[this.dataset.prof]) {
+        let newItem = document.createElement('li');
 
-        let newProp = document.createElement('li');
-        newProp.textContent = prop;
-
-        theList.appendChild(newProp);
+        newItem.textContent = profs[this.dataset.prof][item];
+        theList.appendChild(newItem);
     }
 }
 
 // add event handling here
-theButton.addEventListener('click', listProps);
-
-// let dogName = {
-//     color : "skin",
-//     breed : "labrador retrievers",
-//     name : "jack",
-//     age : "three",
-
-//     favoritefood : () => {console.log('peddigiri')},
-// };
-
-
-
-
+theButtons.forEach(profButton => profButton.addEventListener('click', listProfs));
