@@ -1,6 +1,6 @@
 console.log('its working');
 
-let theButton = document.querySelectorAll('button'),
+let theButtons = document.querySelectorAll('button'),
     theList = document.querySelector('ul');
 
 // rules for working with/creating objects
@@ -30,16 +30,15 @@ let profs = {
         nickname : 'teddy bear',
         bio : 'some interesting info about  john',
         avatar : ' john.jpg'
-        },
+        }
 };
 
 //functions go here
-function listProfs() {
+function listProf() {
     // empty out the list
         theList.innerHTML ="";
+    
     // and then repopulate it with the correct data
-    
-    
     for (item in profs[this.dataset.prof]) {
         let newItem = document.createElement('li');
 
@@ -49,4 +48,4 @@ function listProfs() {
 }
 
 // add event handling here
-theButtons.forEach(profButton => profButton.addEventListener('click', listProfs));
+theButtons.forEach(profButton => profButton.addEventListener('click', listProf));
